@@ -1,6 +1,6 @@
 layout: page
 title: "Educatational Resources"
-permalink: /learning.md
+permalink: /LEARNING.md
 
 # Learning Resources
 
