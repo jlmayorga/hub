@@ -13,17 +13,13 @@
         <p>Guides, courses, and documentation to level up your skills.</p>
     </header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="learning.html">Learning Resources</a>
-        <a href="security.html">Security</a>
-        <a href="console.html">Console</a>
-        <a href="monitoring.html">Monitoring</a>
-        <a href="installing.html">Installing</a>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <main>
         <div class="grid-container">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search resources, topics, or guides...">
+            </div>
             
             <div class="card">
                 <h3>RHEL 9 Administration</h3>
@@ -39,17 +35,20 @@
 
             <div class="card">
                 <h3>Ansible Workshops</h3>
-                <p>90 minute+ Self led Ansible Workshops</p>
+                <p>90 minute+ self led Ansible Workshops</p>
                 <a href="https://labs.demoredhat.com/">View Workshops &rarr;</a>
             </div>
 
             <div class="card">
                 <h3>Interactive Self Paced Labs</h3>
+                <p>These step-by-step scenarios guide you through the fundamentals of using Red Hat® products and solutions, from artificial intelligence, to virtualization, and more.</p>
                 <a href="https://www.redhat.com/en/interactive-experiences">Explore Labs &rarr;</a>
             </div>
             
         </div>
     </main>
 
+    <script src="nav.js"></script>
+    <script src="search.js"></script>
 </body>
 </html>
