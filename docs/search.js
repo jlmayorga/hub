@@ -89,6 +89,15 @@ function performSearchAndFilter() {
 }
 
 if (searchInput) searchInput.addEventListener('input', performSearchAndFilter);
-if (difficultyFilter) difficultyFilter.addEventListener('change', performSearchAndFilter);
-if (topicFilter) topicFilter.addEventListener('change', performSearchAndFilter);
-if (typeFilter) typeFilter.addEventListener('change', performSearchAndFilter);
+if (difficultyFilter) {
+    difficultyFilter.addEventListener('change', performSearchAndFilter);
+    difficultyFilter.addEventListener('input', performSearchAndFilter);
+}
+if (topicFilter) {
+    topicFilter.addEventListener('change', performSearchAndFilter);
+    topicFilter.addEventListener('input', performSearchAndFilter);
+}
+if (typeFilter) {
+    typeFilter.addEventListener('change', performSearchAndFilter);
+    typeFilter.addEventListener('input', performSearchAndFilter);
+}
