@@ -1,3 +1,5 @@
+---
+---
 // search.js
 const searchInput = document.getElementById('searchInput');
 const cards = document.querySelectorAll('.card');
@@ -6,26 +8,30 @@ const introSection = document.getElementById('introSection');
 
 // Global search data containing all cards from across the site
 const globalData = [
-    { title: "Red Hat Web Console (Cockpit)", text: "A web-based graphical interface for servers. Manage storage, networks, and containers directly from your browser.", link: "console.html", linkText: "Launch Guide &rarr;" },
-    { title: "Red Hat Insights", text: "Proactive analytics and continuous security monitoring for your hybrid cloud deployments.", link: "console.html", linkText: "Explore Insights &rarr;" },
-    { title: "OpenShift Web Console", text: "Navigate the administrator and developer perspectives to manage pods, deployments, and cluster health.", link: "console.html", linkText: "OpenShift Docs &rarr;" },
-    { title: "Kickstart Installations", text: "Automate your RHEL installations by creating and modifying Kickstart configuration files.", link: "installing.html", linkText: "Kickstart Guide &rarr;" },
-    { title: "RHEL Image Builder", text: "Create custom operating system images optimized for cloud providers, virtual machines, or bare metal.", link: "installing.html", linkText: "Build an Image &rarr;" },
-    { title: "OpenShift Assisted Installer", text: "Deploy a highly available OpenShift cluster quickly and easily using the web-based Assisted Installer.", link: "installing.html", linkText: "Start Deployment &rarr;" },
-    { title: "RHEL 9 Administration", text: "A complete guide to managing users, storage, and networking in Red Hat Enterprise Linux 9.", link: "learning.html", linkText: "Read Guide &rarr;" },
-    { title: "OpenShift Basics", text: "Learn the fundamentals of deploying and managing containerized applications with OpenShift.", link: "learning.html", linkText: "Start Tutorial &rarr;" },
-    { title: "Ansible Workshops", text: "90 minute+ self led Ansible Workshops", link: "learning.html", linkText: "View Workshops &rarr;" },
-    { title: "Interactive Self Paced Labs", text: "These step-by-step scenarios guide you through the fundamentals of using Red Hat® products and solutions, from artificial intelligence, to virtualization, and more.", link: "learning.html", linkText: "Explore Labs &rarr;" },
-    { title: "Performance Co-Pilot (PCP)", text: "Collect and analyze live system metrics, including CPU, memory, and disk I/O, using PCP and Grafana.", link: "monitoring.html", linkText: "Configure PCP &rarr;" },
-    { title: "Prometheus on OpenShift", text: "Learn how cluster monitoring works in OpenShift Container Platform using Prometheus and Alertmanager.", link: "monitoring.html", linkText: "View Architecture &rarr;" },
-    { title: "RHEL System Roles: Metrics", text: "Use Ansible system roles to easily deploy and configure monitoring solutions across multiple RHEL servers.", link: "monitoring.html", linkText: "Get Playbook &rarr;" },
-    { title: "SELinux Troubleshooting", text: "Master Security-Enhanced Linux. Learn how to read audit logs, manage booleans, and adjust file contexts.", link: "security.html", linkText: "Read Guide &rarr;" },
-    { title: "OpenSCAP Compliance", text: "Automate vulnerability management and evaluate your RHEL systems against security baselines.", link: "security.html", linkText: "View Documentation &rarr;" },
-    { title: "Identity Management (IdM)", text: "Centralize authentication, authorization, and DNS for your Linux domain using Red Hat IdM.", link: "security.html", linkText: "Setup Tutorial &rarr;" },
-    { title: "Red Hat Customer Portal", text: "Access the official Knowledgebase, manage your subscriptions, download software, and open support tickets.", link: "support.html", linkText: "Visit Portal &rarr;" },
-    { title: "Generating an sosreport", text: "Learn how to safely collect system configuration and diagnostic information from RHEL to provide to Red Hat Support.", link: "support.html", linkText: "View Command &rarr;" },
-    { title: "Red Hat Communities", text: "Engage with other professionals and Red Hat engineers to share solutions, ask questions, and discuss best practices.", link: "support.html", linkText: "Join Discussion &rarr;" },
-    { title: "Product Documentation", text: "Browse the complete, official product documentation for all Red Hat products and versions.", link: "support.html", linkText: "Read Docs &rarr;" }
+  {% for item in site.data.learning %}
+  { title: {{ item.title | jsonify }}, text: {{ item.desc | jsonify }}, link: "learning.html", linkText: {{ item.link_text | jsonify }} },
+  {% endfor %}
+  {% for item in site.data.console %}
+  { title: {{ item.title | jsonify }}, text: {{ item.desc | jsonify }}, link: "console.html", linkText: {{ item.link_text | jsonify }} },
+  {% endfor %}
+  {% for item in site.data.installing %}
+  { title: {{ item.title | jsonify }}, text: {{ item.desc | jsonify }}, link: "installing.html", linkText: {{ item.link_text | jsonify }} },
+  {% endfor %}
+  {% for item in site.data.monitoring %}
+  { title: {{ item.title | jsonify }}, text: {{ item.desc | jsonify }}, link: "monitoring.html", linkText: {{ item.link_text | jsonify }} },
+  {% endfor %}
+  {% for item in site.data.security %}
+  { title: {{ item.title | jsonify }}, text: {{ item.desc | jsonify }}, link: "security.html", linkText: {{ item.link_text | jsonify }} },
+  {% endfor %}
+  {% for item in site.data.support %}
+  { title: {{ item.title | jsonify }}, text: {{ item.desc | jsonify }}, link: "support.html", linkText: {{ item.link_text | jsonify }} },
+  {% endfor %}
+  {% for item in site.data.events %}
+  { title: {{ item.title | jsonify }}, text: {{ item.desc | jsonify }}, link: "events.html", linkText: {{ item.link_text | jsonify }} },
+  {% endfor %}
+  {% for item in site.data.scale_test %}
+  { title: {{ item.title | jsonify }}, text: {{ item.desc | jsonify }}, link: "scale-test.html", linkText: {{ item.link_text | jsonify }} },
+  {% endfor %}
 ];
 
 const difficultyFilter = document.getElementById('difficultyFilter');
